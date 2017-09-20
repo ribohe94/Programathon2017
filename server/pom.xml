@@ -76,9 +76,10 @@
                         </goals>
                         <configuration>
                             <inputSpec>src/main/resources/api.yaml</inputSpec>
+                            <output>${project.basedir}</output>
                             <language>spring</language>
                             <configOptions>
-                                <sourceFolder>src/gen/java/main</sourceFolder>
+                                <sourceFolder>src/main/java</sourceFolder>
                             </configOptions>
                         </configuration>
                     </execution>
