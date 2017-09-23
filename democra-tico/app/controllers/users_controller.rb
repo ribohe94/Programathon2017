@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  prepend_before_action :check_captcha, only: [:create] # Change this to be any actions you want to protect.
   before_action :authenticate_user!
 
   def index
@@ -14,7 +15,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(user_params)
+    if verify_recaptcha(model: @user) && @user.update_attributes(user_params)
       redirect_to users_path
     else
       render 'edit'
@@ -47,5 +48,13 @@ WHERE a.proceso_electoral_id = b.id AND a.user_id = " +  @user.id.to_s + ";"
   private
     def user_params
       params.require(:user).permit(:email, :nombre, :primer_apellido, :segundo_apellido)
+    end
+
+    def check_captcha
+      unless verify_recaptcha
+        self.resource = resource_class.new sign_up_params
+        resource.validate # Look for any other validation errors besides Recaptcha
+        respond_with_navigational(resource) { render :new }
+      end
     end
 end

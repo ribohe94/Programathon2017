@@ -5,22 +5,22 @@
 
   <div class="field">
       <%= f.label :nombre %><br />
-      <%= f.text_field :nombre, autofocus: true %>
+      <%= f.text_field :nombre, autofocus: true, value: @user.nombre %>
     </div>
 
     <div class="field">
       <%= f.label :primer_apellido %><br />
-      <%= f.text_field :primer_apellido  %>
+      <%= f.text_field :primer_apellido, value: @user.primer_apellido  %>
     </div>
 
       <div class="field">
       <%= f.label :segundo_apellido %><br />
-      <%= f.text_field :segundo_apellido  %>
+      <%= f.text_field :segundo_apellido, value: @user.segundo_apellido  %>
     </div>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email %>
+    <%= f.email_field :email, value: @user.email %>
   </div>
 
   <% if current_user && current_user.user_type == 'Administrador' %>
@@ -34,7 +34,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.label :password %> <i>(deje en blanco si no desea cambiarlo)</i><br />
     <%= f.password_field :password, autocomplete: "off" %>
     <% if @minimum_password_length %>
       <br />
@@ -48,10 +48,11 @@
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password %> <i>(necesitamos su contraseña actual para confirmar sus cambios)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
-
+  <%= flash[:recaptcha_error] %>
+  <%= recaptcha_tags %>
   <div class="actions">
     <%= f.submit "Actualizar" %>
   </div>
