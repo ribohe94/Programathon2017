@@ -1,0 +1,33 @@
+<h3>Usuarios Registrados</h3>
+<table class="hover">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Primer Apellido</th>
+      <th>Segundo Apellido</th>
+      <th>Email</th>
+      <th>Ingresos</th>
+      <th>Ultimo Ingreso Sign-in</th>
+      <th>Ultimo Ingreso IP</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= link_to user.nombre, user_path(user.id) %></td>
+      <td><%= user.primer_apellido %></td>
+      <td><%= user.segundo_apellido %></td>
+      <td><%= user.email %></td>
+      <td><%= user.sign_in_count %></td>
+      <td><%= user.last_sign_in_at %></td>
+      <td><%= user.last_sign_in_ip %></td>
+      <td nowrap>
+        <%#= link_to 'Ver Usuario'.html_safe, user_path(user.id), :title => t('users.show.hover_title') %>
+        <%= link_to "Editar Usuario", edit_user_path(user.id) %>
+        <%= link_to "Borrar Usuario", user_path(user.id), method: :delete, data: { confirm: "Esta Seguro?" } %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

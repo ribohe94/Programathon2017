@@ -1,0 +1,50 @@
+<h2>Registro de Usuarios</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :primer_apellido %><br />
+    <%= f.text_field :primer_apellido %>
+  </div>
+
+    <div class="field">
+    <%= f.label :segundo_apellido %><br />
+    <%= f.text_field :segundo_apellido %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, "contraseña" %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, "confirmar contraseña" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <% if current_user && current_user.user_type = 'Administrador' %>
+    <%= f.input :user_type do %>
+      <%= f.collection_select(:user_type, User::USER_TYPES,:to_s,:to_s , {include_blank: 'Seleccione el tipo de usuario.'}) %>
+    <% end %>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit "Registrar" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
