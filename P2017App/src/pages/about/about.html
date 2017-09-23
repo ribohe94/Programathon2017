@@ -1,11 +1,55 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      About
-    </ion-title>
-  </ion-navbar>
+	<ion-navbar>
+		<ion-title>
+			Creacion de usuario
+		</ion-title>
+	</ion-navbar>
 </ion-header>
 
 <ion-content padding>
+	<ion-list>
 
+		<ion-item>
+			<ion-label stacked>Username</ion-label>
+			<ion-input type="text"></ion-input>
+		</ion-item>
+
+		<ion-item>
+			<ion-label stacked>E-mail</ion-label>
+			<ion-input type="password"></ion-input>
+		</ion-item>
+
+		<ion-item>
+			<ion-label stacked>Password</ion-label>
+			<ion-input type="password"></ion-input>
+		</ion-item>
+
+		<ion-item>
+			<ion-label stacked>Repeat Password</ion-label>
+			<ion-input type="password"></ion-input>
+		</ion-item>
+
+		<ion-item>
+			<ion-label stacked>Nombre</ion-label>
+			<ion-input type="password"></ion-input>
+		</ion-item>
+
+		<ion-item>
+			<ion-label stacked>Apellido</ion-label>
+			<ion-input type="password"></ion-input>
+		</ion-item>
+
+		<ion-item>
+			<ion-label stacked>Segundo Apellido</ion-label>
+			<ion-input type="password"></ion-input>
+		</ion-item>
+
+		<ion-item>
+			<ion-label stacked>Fecha Nacimiento</ion-label>
+			<ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="myDate"></ion-datetime>
+		</ion-item>
+
+		<button ion-button full>Crear</button>
+
+	</ion-list>
 </ion-content>
