@@ -8,6 +8,7 @@ contract SingleVote {
 	}
 
 	function addVote() {
+	
 		numVotes += 1;
 	}
 }
