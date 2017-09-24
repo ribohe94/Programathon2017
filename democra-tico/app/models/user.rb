@@ -1,4 +1,3 @@
-require 'securerandom'
 class User < ApplicationRecord
 
   # Include default devise modules. Others available are:
@@ -11,7 +10,8 @@ class User < ApplicationRecord
   validates :email, uniqueness: true, presence: true
 
   def fetch_auth_token!
-    self.auth_token = SecureRandom.base64(50)
+    token = SecureRandom.base64(50)
+    self.auth_token = token
     self.save!
     self.auth_token
   end
