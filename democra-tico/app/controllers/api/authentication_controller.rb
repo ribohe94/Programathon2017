@@ -1,4 +1,5 @@
 class Api::AuthenticationController < Api::BaseController
+
   def create
     if user && user.valid_password?(params[:password])
       render json: { token: user.fetch_auth_token! }, status: :ok

@@ -2,14 +2,10 @@ class Api::BaseController < ApplicationController
   before_action :ensure_and_set_current_user!
 
   def ensure_and_set_current_user!
-
-  Rails.logger.debug params.inspect
-
-   if current_user
-     @user = current_user
-   else
-   render json: {}, status: :unauthorized
-   end
+    Rails.logger.debug params.inspect
+    if current_user
+       @user = current_user
+    end
   end
 
   private
