@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   root to: "procesos_electorales#index"
   resources :users
 
-  post 'api/authenticate', to: 'api/authentication#create'
+  post 'api/authenticate', to: 'api/authentication#create', email: 'email', password: 'password'
 end
