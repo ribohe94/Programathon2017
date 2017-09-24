@@ -13,8 +13,8 @@ export class AdminHomePage {
   public userDetails: any;
   constructor(public navCtrl: NavController) {
     console.log("Creating admin home");
-    const data = JSON.parse(localStorage.getItem('userData'));
-    this.userDetails = data.userData;
+    //const data = JSON.parse(localStorage.getItem('userData'));
+    //this.userDetails = data.userData;
   }
   eventList(){
     this.navCtrl.push(EventListPage);

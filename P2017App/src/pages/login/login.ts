@@ -20,20 +20,19 @@ export class LoginPage {
 
   login(){
     //send information to the API
-    console.log(this.user);
+    /*console.log(this.user);
     this.authService.postData(this.user,"authenticate/"+'?email='+this.user.email+'&password='+this.user.password).then((result) => {
       debugger;
       this.responseData = result;
       console.log(this.responseData);
-      localStorage.setItem('userData',JSON.stringify(this.responseData));
+      localStorage.setItem('userData',JSON.stringify(this.responseData));*/
       //if(admin)
       this.navCtrl.push(AdminHomePage)
       //else
       //this.navCtrl.push(UserHomePage);
-    }, (err) => {
+  /*  }, (err) => {
       console.error(err);
-    });
-
+    });*/
 
   }
 
