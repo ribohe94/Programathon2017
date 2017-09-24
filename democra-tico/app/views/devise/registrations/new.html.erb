@@ -5,22 +5,22 @@
 
   <div class="field">
     <%= f.label :nombre %><br />
-    <%= f.text_field :nombre, autofocus: true %>
+    <%= f.text_field :nombre, autofocus: true, required: true %>
   </div>
 
   <div class="field">
     <%= f.label :primer_apellido %><br />
-    <%= f.text_field :primer_apellido %>
+    <%= f.text_field :primer_apellido, required: true %>
   </div>
 
     <div class="field">
     <%= f.label :segundo_apellido %><br />
-    <%= f.text_field :segundo_apellido %>
+    <%= f.text_field :segundo_apellido, required: true %>
   </div>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email %>
+    <%= f.email_field :email, required: true %>
   </div>
 
   <div class="field">

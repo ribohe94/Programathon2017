@@ -5,22 +5,22 @@
 
   <div class="field">
       <%= f.label :nombre %><br />
-      <%= f.text_field :nombre, autofocus: true, value: @user.nombre %>
+      <%= f.text_field :nombre, autofocus: true%>
     </div>
 
     <div class="field">
       <%= f.label :primer_apellido %><br />
-      <%= f.text_field :primer_apellido, value: @user.primer_apellido  %>
+      <%= f.text_field :primer_apellido %>
     </div>
 
       <div class="field">
       <%= f.label :segundo_apellido %><br />
-      <%= f.text_field :segundo_apellido, value: @user.segundo_apellido  %>
+      <%= f.text_field :segundo_apellido  %>
     </div>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, value: @user.email %>
+    <%= f.email_field :email %>
   </div>
 
   <% if current_user && current_user.user_type == 'Administrador' %>
