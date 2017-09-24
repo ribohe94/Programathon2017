@@ -4,18 +4,16 @@ body {
   background: image-url("backgrounds/handmadepaper.png") repeat;
 }
 
-.top-bar, .top-bar ul {
-  background:  image-url("backgrounds/subtle_surface.png") repeat;
+.top-bar-right {
+    float: right;
 }
 
-.top-bar {
-  -moz-box-shadow: 0 1px rgba(211,211,211, 0.8);
-  -webkit-box-shadow: 0 1px rgba(211,211,211, 0.8);
-  box-shadow: 0 1px rgba(211,211,211, 0.8);
+.menu {
+    list-style-type: none;
 }
 
-main {
-  padding-top: 20px;
+.menu li {
+  display: inline-block;
 }
 
 /* Header Styles

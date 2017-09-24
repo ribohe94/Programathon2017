@@ -13,24 +13,26 @@
   </head>
 
   <body>
-  <div class="top-bar">
-    <div class="top-bar-right">
-      <span class="site-title">DEMOCRA-TICO</span>
+  <header>
+    <div class="top-bar">
+      <div class="top-bar-right">
+        <ul class="menu">
+          <%- if current_user %>
+            <li class="has-sub-menu" role="menuitem"><%= link_to('Mi Cuenta |', edit_user_registration_path) %></li>
+            <li role="menuitem"><%= link_to('Salir |', destroy_user_session_path, :method => :delete) %></li>
+          <% if current_user.user_type == 'Administrador' %>
+            <li role="menuitem"><%= link_to('Administrar Usuarios', users_path) %></li>
+          <%- end %>
+          <%- else %>
+            <li role="menuitem"><%= link_to "Login", new_user_session_path %></li>
+          <%- end %>
+        </ul>
+      </div>
+      <div class="top-bar-left">
+        <span style="color:white" class="site-title">DEMOCRA-TICO</span>
+      </div>
     </div>
-    <div class="top-bar-right">
-      <ul class="dropdown menu" data-dropdown-menu>
-        <%- if current_user %>
-          <li ><%= link_to('Mi Cuenta', edit_user_registration_path) %></li>
-          <li><%= link_to('Salir', destroy_user_session_path, :method => :delete) %></li>
-        <% if current_user.user_type == 'Administrador' %>
-          <li><%= link_to('Administrar Usuarios', users_path) %></li>
-        <%- end %>
-        <%- else %>
-          <li><%= link_to "Login", new_user_session_path %></li>
-        <%- end %>
-      </ul>
-    </div>
-  </div>
+  </header>
     <div class="column">
       <main role="main">
         <span class="notice"><%= notice %></span>
