@@ -3,9 +3,9 @@ class Api::BaseController < ApplicationController
 
   def ensure_and_set_current_user!
 
-  logger.debug params[:email]
+  logger.debug "helo" + params
    if current_user
-     user = current_user
+     @user = current_user
    else
    render json: {}, status: :unauthorized
    end
