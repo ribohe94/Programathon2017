@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  prepend_before_action :check_captcha, only: [:create] # Change this to be any actions you want to protect.
+  prepend_before_action :check_captcha, only: [:create]
   before_action :authenticate_user!
 
   def index
@@ -26,7 +26,10 @@ class UsersController < ApplicationController
   end
 
   def create
-
+    @user = User.new(user_params)
+    if !verify_recaptcha(model: @user) || !@user.save
+      render "new"
+    end
   end
 
   def destroy
