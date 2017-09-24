@@ -12,6 +12,7 @@ contract PublicReferendumVotingMotion is VotingMotion {
 		require(p.length==2);
 		firstOption = p[0];
 		secondOption = p[1];
+		voterNames = vn;
 	}
 
 	function addVoter(address voter,bytes32 name) 
@@ -40,6 +41,7 @@ contract PublicReferendumVotingMotion is VotingMotion {
 		if(isValidOption(selection) && !voted[msg.sender]) {
 			voted[msg.sender] = true;
 			votes[selection] += 1;
+			chosenMotion[msg.sender] = selection;
 			return true;
 		}
 		return false;

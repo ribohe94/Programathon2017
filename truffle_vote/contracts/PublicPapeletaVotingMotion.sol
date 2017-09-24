@@ -38,6 +38,7 @@ contract PublicPapeletaVotingMotion is VotingMotion {
 		if(isValidOption(selection) && !voted[msg.sender]) {
 			voted[msg.sender] = true;
 			votes[selection] += 1;
+			chosenMotion[msg.sender] = selection;
 			return true;
 		}
 		return false;
