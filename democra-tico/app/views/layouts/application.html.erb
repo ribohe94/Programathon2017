@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DemocraTico</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+
+<ul>
+  <%- if current_user %>
+  <li><%= link_to('Mi Cuenta', edit_user_registration_path) %></li>
+  <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+  <% if current_user.user_type == 'Administrador' %>
+  <li><%= link_to('Administrar Usuarios', users_path) %></li>
+  <%- end %>
+
+
+  <%- else %>
+  <li><%= link_to "Login", new_user_session_path %></li>
+  <%- end %>
+</ul>
+
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </body>
+</html>

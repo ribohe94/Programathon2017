@@ -1,0 +1,4 @@
+class ProcesoElectoral < ApplicationRecord
+
+
+end

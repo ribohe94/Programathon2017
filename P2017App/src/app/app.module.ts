@@ -6,7 +6,16 @@ import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
+//import { TabsPage } from '../pages/tabs/tabs';
+import { LoginPage }  from '../pages/login/login';
+import { EventListPage } from '../pages/eventlist/event-list';
+import { UserListPage } from '../pages/userlist/user-list';
+import { AdminHomePage } from '../pages/adminhome/admin-home';
+import { UserHomePage } from '../pages/userhome/user-home';
+import { PageOne, PageTwo, PageThree } from '../pages/menus/pages';
 import { TabsPage } from '../pages/tabs/tabs';
+import { VotingPage } from '../pages/voting/voting';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -17,7 +26,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    VotingPage,
+    TabsPage,
+    LoginPage,
+  //  TabsPage,
+    EventListPage,
+    UserListPage,
+    AdminHomePage,
+    UserHomePage,
+    PageOne, PageTwo, PageThree
   ],
   imports: [
     BrowserModule,
@@ -28,8 +45,16 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     AboutPage,
     ContactPage,
+    LoginPage,
     HomePage,
-    TabsPage
+    VotingPage,
+    TabsPage,
+//    TabsPage,
+    EventListPage,
+    UserListPage,
+    AdminHomePage,
+    UserHomePage,
+    PageOne, PageTwo, PageThree
   ],
   providers: [
     StatusBar,

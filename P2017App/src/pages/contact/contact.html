@@ -1,17 +1,47 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Contact
+      Crear evento de votacion
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
+
   <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
+    <ion-list-header>Creacion del evento</ion-list-header>
     <ion-item>
-      <ion-icon name="ionic" item-left></ion-icon>
-      @ionicframework
+      <ion-label stacked>Nombre del evento</ion-label>
+      <ion-input type="text"></ion-input>
     </ion-item>
-  </ion-list>
+
+    <ion-item>
+      <ion-label stacked>Tema</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Fecha de inicio</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="myDate"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Fecha final</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="myDate"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Agregar Votantes</ion-label>
+    </ion-item>
+    
+    <ion-searchbar
+    [(ngModel)]="myInput"
+    [showCancelButton]="shouldShowCancel"
+    (ionInput)="onInput($event)"
+    (ionCancel)="onCancel($event)">
+  </ion-searchbar>
+
+  <button ion-button full>Siguiente</button>
+
+</ion-list>
 </ion-content>

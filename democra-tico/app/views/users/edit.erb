@@ -1,0 +1,53 @@
+<h2>Editar Usuario</h2>
+
+<%= form_for @user, url:  user_path, :method => :patch do |f| %>
+
+  <div class="field">
+      <%= f.label :nombre %><br />
+      <%= f.text_field :nombre, autofocus: true, value: @user.nombre %>
+    </div>
+
+    <div class="field">
+      <%= f.label :primer_apellido %><br />
+      <%= f.text_field :primer_apellido, value: @user.primer_apellido  %>
+    </div>
+
+      <div class="field">
+      <%= f.label :segundo_apellido %><br />
+      <%= f.text_field :segundo_apellido  %>
+    </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, @user.email %>
+  </div>
+
+
+      <%= f.collection_select(:user_type, User::USER_TYPES,:to_s,:to_s , {include_blank: 'Seleccione el tipo de usuario.'}) %>
+
+
+
+  <div class="field">
+    <%= f.label :password %> <i>(deje en blanco si no desea cambiarlo)</i><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password %> <i>(necesitamos su contraseña actual para confirmar sus cambios)</i><br />
+    <%= f.password_field :current_password, autocomplete: "off" %>
+  </div>
+  <%= flash[:recaptcha_error] %>
+  <%= recaptcha_tags %>
+  <div class="actions">
+    <%= f.submit "Actualizar" %>
+  </div>
+<% end %>
