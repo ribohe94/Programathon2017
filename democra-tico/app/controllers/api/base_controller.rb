@@ -4,6 +4,7 @@ class Api::BaseController < ApplicationController
   def ensure_and_set_current_user!
 
   Rails.logger.debug params.inspect
+
    if current_user
      @user = current_user
    else
