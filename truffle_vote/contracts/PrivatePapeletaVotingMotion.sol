@@ -5,18 +5,23 @@ pragma solidity ^0.4.4;
 Multiples opciones, sólo se puede escoger una
 */
 contract PrivatePapeletaVotingMotion {
+	struct Proposal{
+		bytes32 val;
+		uint256 count;
+	}
+
 	address public motionOwner;
 	address[] public voters;
-	mapping(address=>bool) public allowed;//remove
 	mapping(address=>bool) public voted;
 	
 	bytes32[] public proposals;
+	// Proposal[] public proposals;
 
-	mapping (bytes32=>uint) public votes;
+	mapping (bytes32=>uint256) public votes;
 	uint256 public startTime;
 	uint256 public endTime;
 
-	bool canSeeResults;
+	bool public canSeeResults;
 
 	function PrivatePapeletaVotingMotion(address[] v, uint s,uint e, bytes32[] p,bool canSee) {
 		motionOwner = msg.sender;
@@ -55,13 +60,6 @@ contract PrivatePapeletaVotingMotion {
 
 
 	function addVoter(address voter) 
-		onlyByOwner() 
-	{
-		voters.push(voter);
-		voted[voter] = false;
-	} 
-
-	function removeVoter(address voter) 
 		onlyByOwner() 
 	{
 		voters.push(voter);
@@ -107,14 +105,24 @@ contract PrivatePapeletaVotingMotion {
 		return len;
 	}
 
-	function showResults() onlyByOwner() returns (bytes32[],uint[]) {
-		uint[] memory res;
+	function showResults() 
+		onlyByOwner() 
+		returns (uint256[]) 
+	{
+		uint256[] memory res = new uint256[](proposals.length);
 		for(uint8 i=0;i<proposals.length;i++) {
-			res[i] = votes[ proposals[i] ];		
+			res[i] = votes[ proposals[i] ];
+			// res.push(votes[proposals[i]]);
  		}
 		// props = proposals;
 		// r = res;
-		return (proposals,res);
+		return (res);
+	}
+
+	function test() returns(bool) {
+		uint256[] memory tt;
+		tt[0] = 1;
+		return true;
 	}
 
 	function showVoters() constant returns (address[]) 
