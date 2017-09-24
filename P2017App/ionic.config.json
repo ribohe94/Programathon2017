@@ -2,5 +2,9 @@
   "name": "P2017App",
   "app_id": "",
   "type": "ionic-angular",
-  "integrations": {}
+  "integrations": {},
+  "proxies": [{
+    "path": "/api",
+    "proxyUrl": "http://democra-tico.com/api/"
+  }]
 }

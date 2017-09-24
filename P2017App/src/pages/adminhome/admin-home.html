@@ -1,10 +1,6 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>Bienvenido</ion-title>
-  </ion-navbar>
-</ion-header>
 
-<ion-content class="cards-bg">
+
+<ion-content class="cards-bg" padding>
 <ion-grid>
   <ion-row>
     <ion-col col-6>
@@ -19,7 +15,7 @@
         </ion-card-content>
         <ion-row no-padding>
           <ion-col text-right>
-            <button ion-button icon-start>
+            <button ion-button icon-start (click)="eventList()">
               <ion-icon name='open'></ion-icon>
             </button>
           </ion-col>
@@ -38,7 +34,47 @@
         </ion-card-content>
         <ion-row no-padding>
           <ion-col text-right>
-            <button ion-button icon-start>
+            <button ion-button icon-start (click)="userList()" >
+              <ion-icon name='open'></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-6>
+      <ion-card>
+        <ion-card-content>
+          <ion-card-title>
+            Crear evento de votación
+          </ion-card-title>
+          <p>
+            Crea diferentes eventos de votación.
+          </p>
+        </ion-card-content>
+        <ion-row no-padding>
+          <ion-col text-right>
+            <button ion-button icon-start (click)="createEvent()" >
+              <ion-icon name='open'></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ion-col>
+    <ion-col col-6>
+      <ion-card>
+        <ion-card-content>
+          <ion-card-title>
+            Crear usuario
+          </ion-card-title>
+          <p>
+            Añade nuevo usuarios al sistema de votación.
+          </p>
+        </ion-card-content>
+        <ion-row no-padding>
+          <ion-col text-right>
+            <button ion-button icon-start (click)="createEvent()" >
               <ion-icon name='open'></ion-icon>
             </button>
           </ion-col>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import { AboutPage } from '../about/about';
-import { ContactPage } from '../contact/contact';
+import { UserManagerPage } from '../usermanager/usermanager';
+import { EventManagerPage } from '../eventmanager/eventmanager';
 import { HomePage } from '../home/home';
 import { VotingPage } from '../voting/voting';
 
@@ -16,8 +16,8 @@ import { UserHomePage } from '../userhome/user-home';
 export class TabsPage {
 
   tab1Root = HomePage;
-  tab2Root = AboutPage;
-  tab3Root = ContactPage;
+  tab2Root = UserManagerPage;
+  tab3Root = EventManagerPage;
   tab4Root = LoginPage;
   tab5Root = EventListPage;
   tab6Root = UserListPage;
