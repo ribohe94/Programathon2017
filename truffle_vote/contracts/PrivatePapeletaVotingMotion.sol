@@ -68,7 +68,7 @@ contract PrivatePapeletaVotingMotion {
 
 	function vote(bytes32 selection) 
 		onlyVoters()
-	    // onlyOnWindow() //bug due to js dates
+	    onlyOnWindow() 
 		returns (bool)
 	{ //TODO: ADD MULTIPLE USE CASES.
 		if(userFound() && isValidOption(selection) && !voted[msg.sender]) {
