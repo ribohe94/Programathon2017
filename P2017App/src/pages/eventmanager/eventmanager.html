@@ -22,18 +22,33 @@
 
     <ion-item>
       <ion-label stacked>Fecha de inicio</ion-label>
-      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="myDate"></ion-datetime>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="startDate"></ion-datetime>
     </ion-item>
 
     <ion-item>
       <ion-label stacked>Fecha final</ion-label>
-      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="myDate"></ion-datetime>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="endDate"></ion-datetime>
     </ion-item>
 
     <ion-item>
+      <ion-label>Formato de votación</ion-label>
+      <ion-select [(ngModel)]="voteFormat">
+        <ion-option value="papeleta">Papeleta</ion-option>
+        <ion-option value="referendo">Referendo</ion-option>
+        <ion-option value="opcionmultiple">Opción multiple</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Tipo de votación</ion-label>
+      <ion-select [(ngModel)]="voteType">
+        <ion-option value="papeleta">Pública</ion-option>
+        <ion-option value="referendo">Privada</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
       <ion-label stacked>Agregar Votantes</ion-label>
     </ion-item>
-    
+
     <ion-searchbar
     [(ngModel)]="myInput"
     [showCancelButton]="shouldShowCancel"
