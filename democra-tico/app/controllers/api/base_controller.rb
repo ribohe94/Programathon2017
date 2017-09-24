@@ -1,13 +1,13 @@
 class Api::BaseController < ApplicationController
-  before_action :ensure_and_set_current_user!
+  # before_action :ensure_and_set_current_user!
 
-  def ensure_and_set_current_user!
-    if current_user
-      @current_user = current_user
-    else
-      render json: {}, status: :unauthorized
-    end
-  end
+  # def ensure_and_set_current_user!
+  #   if current_user
+  #     @current_user = current_user
+  #   else
+  #     render json: {}, status: :unauthorized
+  #   end
+  # end
 
   private
 
