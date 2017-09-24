@@ -55,8 +55,8 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'democra-tico.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              'democra-tico.com',
-    port:                 21,
+    address:              'mail.democra-tico.com',
+    port:                 587,
     domain:               'democra-tico.com',
     user_name:            'webmaster@democra-tico.com',
     password:             'GnuVaultsLatsBop22',
