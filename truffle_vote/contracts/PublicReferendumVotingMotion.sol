@@ -1,13 +1,17 @@
 pragma solidity ^0.4.4;
 import './VotingMotion.sol';
-contract PublicPapeletaVotingMotion is VotingMotion {
+contract PublicReferendumVotingMotion is VotingMotion {
 	mapping(address=>bytes32) public chosenMotion;
 	bytes32[] public voterNames;//TODO: necessary????
+	bytes32 public firstOption;
+	bytes32 public secondOption;
 
-	function PublicPapeletaVotingMotion(address[] v, uint s,uint e, bytes32[] p,bool canSee,bytes32[] vn) 
+	function PublicReferendumVotingMotion(address[] v, uint s,uint e, bytes32[] p,bool canSee,bytes32[] vn) 
 		VotingMotion(v,s,e,p,canSee) 
 	{
-		voterNames = vn;
+		require(p.length==2);
+		firstOption = p[0];
+		secondOption = p[1];
 	}
 
 	function addVoter(address voter,bytes32 name) 
@@ -17,8 +21,6 @@ contract PublicPapeletaVotingMotion is VotingMotion {
 		voterNames.push(name);
 	} 
 
-
-   //TODO: SEE HOW TO PASS THE STRUCTS OF NAMES AND ADDRESSES ALL IN ONE THING.
 
 	function votersChoices() //Returns the choices of each voter. {voters,choices}
 		returns (bytes32[],bytes32[])
@@ -41,5 +43,5 @@ contract PublicPapeletaVotingMotion is VotingMotion {
 			return true;
 		}
 		return false;
-	}		
+	}	
 }

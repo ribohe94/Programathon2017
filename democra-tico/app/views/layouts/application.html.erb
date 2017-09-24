@@ -1,33 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>DemocraTico</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Democra-Tico - Programathon 2017" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-
-
-<ul>
-  <%- if current_user %>
-  <li><%= link_to('Mi Cuenta', edit_user_registration_path) %></li>
-  <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-  <% if current_user.user_type == 'Administrador' %>
-  <li><%= link_to('Administrar Usuarios', users_path) %></li>
-  <%- end %>
-
-
-  <%- else %>
-  <li><%= link_to "Login", new_user_session_path %></li>
-  <%- end %>
-</ul>
-
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+  <div class="top-bar">
+    <div class="top-bar-right">
+      <span class="site-title">DEMOCRA-TICO</span>
+    </div>
+    <div class="top-bar-right">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <%- if current_user %>
+          <li ><%= link_to('Mi Cuenta', edit_user_registration_path) %></li>
+          <li><%= link_to('Salir', destroy_user_session_path, :method => :delete) %></li>
+        <% if current_user.user_type == 'Administrador' %>
+          <li><%= link_to('Administrar Usuarios', users_path) %></li>
+        <%- end %>
+        <%- else %>
+          <li><%= link_to "Login", new_user_session_path %></li>
+        <%- end %>
+      </ul>
+    </div>
+  </div>
+    <div class="column">
+      <main role="main">
+        <span class="notice"><%= notice %></span>
+        <span class="alert"><%= alert %></span>
+        <%= yield %>
+      </main>
+    </div>
+    <%= javascript_include_tag "application" %>
   </body>
 </html>

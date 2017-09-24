@@ -8,7 +8,7 @@ contract VotingMotion {
 	mapping (bytes32=>uint) public votes;
 	uint256 public startTime;
 	uint256 public endTime;
-	bool public canSeeResults;
+	bool public isOpenVote;
 
 	function VotingMotion(address[] v, uint s,uint e, bytes32[] p,bool canSee) {
 		motionOwner = msg.sender;
@@ -16,13 +16,16 @@ contract VotingMotion {
 		startTime = s;
 		endTime = e;
 		proposals = p;
-		canSeeResults = canSee;
+		isOpenVote = canSee;
 		for(uint i=0;i<voters.length;i++){
 			voted[voters[i]] = false;
 		}
 	}
 
-	function showResults() onlyByOwner() returns (bytes32[],uint[]) {
+	function showResults() 
+		onlyByOwner() 
+		onlyIfOpenVoteOrClosed()
+	returns (bytes32[],uint[]) {
 		uint[] memory res;
 		for(uint8 i=0;i<proposals.length;i++) {
 			res[i] = votes[ proposals[i] ];		
@@ -32,8 +35,14 @@ contract VotingMotion {
 		return (proposals,res);
 	}
 
+	function isClosed() constant returns (bool)
+	{
+		return now > endTime;
+	}
+
 	function addVoter(address voter) 
 		onlyByOwner() 
+		internal
 	{
 		voters.push(voter);
 		voted[voter] = false;
@@ -47,6 +56,11 @@ contract VotingMotion {
 			}
 		}
 		return false;
+	}
+
+	function  numVoters() internal returns (uint256)
+	{
+		return voters.length;
 	}
 
 	modifier onlyOnWindow()
@@ -68,6 +82,12 @@ contract VotingMotion {
 			found = found || address(voters[i]) == address(msg.sender);
 		}
 		require(found);
+		_;
+	}
+
+	modifier onlyIfOpenVoteOrClosed()
+	{
+		require(isOpenVote || isClosed());
 		_;
 	}
 }

@@ -20,6 +20,22 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+
+# Use zurb foundation front-end framework
+gem 'modernizr-rails'
+gem 'foundation-rails'
+
+# Libraries for forms
+gem 'simple_form'
+#gem 'cocoon'
+
+# Use client_side_validations for error messages
+gem 'client_side_validations'
+gem 'client_side_validations-simple_form'
+
+
 # use devide for user auth
 gem 'devise'
 # Use ActiveModel has_secure_password

@@ -24,7 +24,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :password, "contraseña" %>
+    <%= f.label :password, "Contraseña" %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
@@ -32,7 +32,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation, "confirmar contraseña" %><br />
+    <%= f.label :password_confirmation, "Confirmar Contraseña" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
@@ -44,7 +44,7 @@
   <%= flash[:recaptcha_error] %>
   <%= recaptcha_tags %>
   <div class="actions">
-    <%= f.submit "Registrar" %>
+    <%= f.button "Registrar" %>
   </div>
 <% end %>
 

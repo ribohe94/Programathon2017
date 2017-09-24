@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170923192911) do
+ActiveRecord::Schema.define(version: 20170924080002) do
 
   create_table "proceso_electoral_por_users", force: :cascade do |t|
     t.integer  "user_id"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20170923192911) do
     t.string   "primer_apellido"
     t.string   "segundo_apellido"
     t.string   "user_type"
+    t.string   "auth_token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
