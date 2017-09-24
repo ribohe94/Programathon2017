@@ -76,14 +76,6 @@ contract PrivatePapeletaVotingMotion {
 		return false;
 	}
 
-	// function isOwner() returns (bool){
-	// 	return msg.sender == motionOwner;
-	// }
-
-	// function isFound() returns (bool){
-	// 	return (voters[0] == msg.sender || voters[1] == msg.sender);
-	// }
-
 	function userFound() returns (bool){
 		for(uint i=0;i<voters.length;i++){
 			if(voters[i] == msg.sender) {
@@ -124,11 +116,6 @@ contract PrivatePapeletaVotingMotion {
 	function isClosed() constant returns (bool)
 	{
 		return now > endTime;
-	}
-
-	function nowVal() constant returns (uint256)
-	{
-		return now;
 	}
 
 	function isValidOption(bytes32 selection) returns (bool isValid)
