@@ -3,7 +3,7 @@ class Api::BaseController < ApplicationController
 
   def ensure_and_set_current_user!
 
-    logger.debug params
+    logger.debug params[:email]
   #   if current_user
   #     @current_user = current_user
   #   else

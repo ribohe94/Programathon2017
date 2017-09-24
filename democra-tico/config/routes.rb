@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   root to: "procesos_electorales#index"
   resources :users
 
-  get 'api/authenticate', to: 'api/authentication#create', defaults: { format: 'json' }
+  get 'api/authenticate', to: 'api/authentication#create'
 end
