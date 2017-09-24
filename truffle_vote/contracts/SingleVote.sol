@@ -1,10 +1,10 @@
-pragma solidity ^0.4.4;
+pragma solidity ^0.4.11;
 
 contract SingleVote {
 	uint8 public numVotes;
 	address[] authorized;
 
-	function SingleVote() {
+	function SingleVote() payable {
 		numVotes = 0;
 	}
 
