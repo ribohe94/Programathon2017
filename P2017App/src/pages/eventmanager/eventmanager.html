@@ -12,27 +12,27 @@
     <ion-list-header>Creacion del evento</ion-list-header>
     <ion-item>
       <ion-label stacked>Nombre del evento</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" [(ngModel)]="formVals.eventName"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label stacked>Tema</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" [(ngModel)]="formVals.topic"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label stacked>Fecha de inicio</ion-label>
-      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="startDate"></ion-datetime>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="formVals.startDate"></ion-datetime>
     </ion-item>
 
     <ion-item>
       <ion-label stacked>Fecha final</ion-label>
-      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="endDate"></ion-datetime>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="formVals.endDate"></ion-datetime>
     </ion-item>
 
     <ion-item>
       <ion-label>Formato de votación</ion-label>
-      <ion-select [(ngModel)]="voteFormat">
+      <ion-select [(ngModel)]="formVals.voteFormat">
         <ion-option value="papeleta">Papeleta</ion-option>
         <ion-option value="referendo">Referendo</ion-option>
         <ion-option value="opcionmultiple">Opción multiple</ion-option>
@@ -40,23 +40,18 @@
     </ion-item>
     <ion-item>
       <ion-label>Tipo de votación</ion-label>
-      <ion-select [(ngModel)]="voteType">
-        <ion-option value="papeleta">Pública</ion-option>
-        <ion-option value="referendo">Privada</ion-option>
+      <ion-select [(ngModel)]="formVals.voteType">
+        <ion-option value="publica">Pública</ion-option>
+        <ion-option value="privada">Privada</ion-option>
       </ion-select>
     </ion-item>
     <ion-item>
       <ion-label stacked>Agregar Votantes</ion-label>
     </ion-item>
 
-    <ion-searchbar
-    [(ngModel)]="myInput"
-    [showCancelButton]="shouldShowCancel"
-    (ionInput)="onInput($event)"
-    (ionCancel)="onCancel($event)">
-  </ion-searchbar>
+    <ion-input type="text" [(ngModel)]="formVals.voters">Votantes</ion-input>
 
-  <button ion-button full>Siguiente</button>
+  <button ion-button full (click)="createEvent()">Siguiente</button>
 
 </ion-list>
 </ion-content>
