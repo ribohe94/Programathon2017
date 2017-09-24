@@ -56,12 +56,12 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              'mail.democra-tico.com',
-    port:                 587,
+    port:                 21,
     domain:               'democra-tico.com',
     user_name:            'webaster@democra-tico.com',
     password:             'GnuVaultsLatsBop22',
     authentication:       'login',
-    enable_starttls_auto: true
+    enable_starttls_auto: false
   }
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
