@@ -10,46 +10,41 @@
 	<ion-list>
 
 		<ion-item>
-			<ion-label stacked>Username</ion-label>
-			<ion-input type="text"></ion-input>
-		</ion-item>
-
-		<ion-item>
 			<ion-label stacked>E-mail</ion-label>
-			<ion-input type="password"></ion-input>
+			<ion-input type="text" [(ngModel)]="userForm.email"></ion-input>
 		</ion-item>
 
 		<ion-item>
 			<ion-label stacked>Password</ion-label>
-			<ion-input type="password"></ion-input>
+			<ion-input type="password" [(ngModel)]="userForm.password"></ion-input>
 		</ion-item>
 
 		<ion-item>
 			<ion-label stacked>Repeat Password</ion-label>
-			<ion-input type="password"></ion-input>
+			<ion-input type="password" [(ngModel)]="userForm.confirmPassword" ></ion-input>
 		</ion-item>
 
 		<ion-item>
 			<ion-label stacked>Nombre</ion-label>
-			<ion-input type="password"></ion-input>
+			<ion-input type="text" [(ngModel)]="userForm.userName"></ion-input>
 		</ion-item>
 
 		<ion-item>
 			<ion-label stacked>Apellido</ion-label>
-			<ion-input type="password"></ion-input>
+			<ion-input type="text" [(ngModel)]="userForm.userLastName"></ion-input>
 		</ion-item>
 
 		<ion-item>
 			<ion-label stacked>Segundo Apellido</ion-label>
-			<ion-input type="password"></ion-input>
+			<ion-input type="text" [(ngModel)]="userForm.userSecondLastName" ></ion-input>
 		</ion-item>
 
 		<ion-item>
 			<ion-label stacked>Fecha Nacimiento</ion-label>
-			<ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="myDate"></ion-datetime>
+			<ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="userForm.birthDate"></ion-datetime>
 		</ion-item>
 
-		<button ion-button full>Crear</button>
+		<button ion-button full (click)='createUser()'>Crear</button>
 
 	</ion-list>
 </ion-content>

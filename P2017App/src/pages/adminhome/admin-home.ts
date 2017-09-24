@@ -4,6 +4,8 @@ import { UserListPage } from '../userlist/user-list';
 import { EventListPage } from '../eventlist/event-list';
 import { EventManagerPage } from '../eventmanager/eventmanager';
 import { UserManagerPage } from '../usermanager/usermanager';
+import { HomePage } from '../home/home';
+import { VotingPage } from '../voting/voting';
 
 @Component({
   selector: 'page-admin-home',
@@ -27,5 +29,11 @@ export class AdminHomePage {
   }
   createUser(){
     this.navCtrl.push(UserManagerPage);
+  }
+  vote(){
+    this.navCtrl.push(HomePage);
+  }
+  viewVotesCount(){
+    this.navCtrl.push(VotingPage);
   }
 }
