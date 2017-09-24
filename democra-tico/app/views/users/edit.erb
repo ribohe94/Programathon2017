@@ -1,6 +1,6 @@
-<h2>Editar Usuario</h2>
+<h2>Editar Usuario XX</h2>
 
-<%= form_for @user, url:  user_path, :method => :patch do |f| %>
+<%= simple_form_for @user, url:  user_path, :method => :patch do |f| %>
 
   <div class="field">
       <%= f.label :nombre %><br />
@@ -22,10 +22,7 @@
     <%= f.email_field :email, @user.email %>
   </div>
 
-
-      <%= f.collection_select(:user_type, User::USER_TYPES,:to_s,:to_s , {include_blank: 'Seleccione el tipo de usuario.'}) %>
-
-
+  <%= f.collection_select(:user_type, User::USER_TYPES,:to_s,:to_s , {include_blank: 'Seleccione el tipo de usuario.'}) %>
 
   <div class="field">
     <%= f.label :password %> <i>(deje en blanco si no desea cambiarlo)</i><br />

@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "procesos_electorales#index"
   resources :users
+
+  get 'api/authenticate', to: 'api/authentication#create', defaults: { format: 'json' }
 end

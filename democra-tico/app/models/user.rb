@@ -8,4 +8,10 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true, presence: true
 
+  def fetch_auth_token!
+    self.auth_token = SecureRandom.base64(50)
+    self.save!
+    self.auth_token
+  end
+
 end
